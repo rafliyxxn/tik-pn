@@ -1,4 +1,5 @@
-<?= $this->extend('layout/v_template'); ?> <?= $this->section('content'); ?>
+<?= $this->extend('layout/v_template'); ?> 
+<?= $this->section('content'); ?>
 <div style="display: flex; gap: 20px; width: 100%; align-items: flex-start; font-family: 'Poppins', sans-serif;">
 
     <div style="flex: 2.2; min-width: 0;">
@@ -9,30 +10,6 @@
             <a href="<?= base_url('admin/laporan'); ?>" class="btn-primary" style="background: white; color: #1e3c72; text-decoration: none; padding: 10px 22px; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 13px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">Lihat Laporan Bulan Ini</a>
         </div>
 
-        <h4 style="margin: 0 0 15px 0; font-size: 16px; color: #2d3748; font-weight: 600;">Kategori Barang</h4>
-        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 25px;">
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-                <i class="fas fa-print" style="font-size: 24px; color: #1e3c72; margin-bottom: 8px;"></i>
-                <p style="margin: 0; font-size: 11px; font-weight: bold; color: #4a5568;">Tinta/Toner</p>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-                <i class="fas fa-copy" style="font-size: 24px; color: #1e3c72; margin-bottom: 8px;"></i>
-                <p style="margin: 0; font-size: 11px; font-weight: bold; color: #4a5568;">Kertas</p>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-                <i class="fas fa-pen" style="font-size: 24px; color: #1e3c72; margin-bottom: 8px;"></i>
-                <p style="margin: 0; font-size: 11px; font-weight: bold; color: #4a5568;">ATK Umum</p>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-                <i class="fas fa-desktop" style="font-size: 24px; color: #1e3c72; margin-bottom: 8px;"></i>
-                <p style="margin: 0; font-size: 11px; font-weight: bold; color: #4a5568;">Hardware</p>
-            </div>
-            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-                <i class="fas fa-network-wired" style="font-size: 24px; color: #1e3c72; margin-bottom: 8px;"></i>
-                <p style="margin: 0; font-size: 11px; font-weight: bold; color: #4a5568;">Jaringan</p>
-            </div>
-        </div>
-
         <h4 style="margin: 0 0 15px 0; font-size: 16px; color: #2d3748; font-weight: 600;">Permintaan Terbaru</h4>
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
             <?php if (!empty($permintaan_baru)) : ?>
@@ -41,14 +18,14 @@
                         <div class="card-permohonan" style="background: #fff; border: 1px solid #e2e8f0; padding: 18px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: transform 0.2s, box-shadow 0.2s;">
                             <div>
                                 <span style="font-size: 11px; color: #718096; font-weight: bold; letter-spacing: 0.5px;">
-                                    <?= esc($pb['no_request'] ?? ($pb['id_permohonan'] ?? 'No Request')); ?>
+                                    <?= esc($pb['no_permintaan'] ?? ($pb['id_permohonan'] ?? 'No Request')); ?>
                                 </span>
                                 <h5 style="margin: 5px 0; font-size: 14px; color: #2d3748; font-weight: 600;">
-                                    <?= esc($pb['nama_ruangan'] ?? ($pb['ruangan'] ?? 'Ruangan Pengaju')); ?>
+                                    <?= esc($pb['ruangan'] ?? 'Ruangan Pengaju'); ?>
                                 </h5>
                                 <small style="color: #a0aec0; font-size: 11px;">
                                     <?php 
-                                        $tanggal = $pb['tanggal_permohonan'] ?? ($pb['tanggal_pengajuan'] ?? ($pb['created_at'] ?? date('Y-m-d')));
+                                        $tanggal = $pb['tgl_mohon'] ?? ($pb['created_at'] ?? date('Y-m-d'));
                                         echo date('d M Y', strtotime($tanggal));
                                     ?>
                                 </small>
@@ -98,7 +75,6 @@
                 <p style="font-size: 12px; color: #28a745; font-weight: bold; margin: 0; text-align: center; padding: 10px 0;"><i class="fas fa-check-circle"></i> Semua stok aman.</p>
             <?php endif; ?>
         </div>
-
     </div>
 
 </div>

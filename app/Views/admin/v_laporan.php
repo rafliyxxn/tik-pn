@@ -81,21 +81,6 @@
                 <button type="submit" class="btn-primary" style="width: 100%; background: #1e3c72; color: #fff; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer;"><i class="fas fa-print"></i> Cetak Rekap Permintaan</button>
             </form>
         </div>
-<div style="border: 1px solid #dce4f0; padding: 20px; border-radius: 12px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02); border-left: 5px solid #27ae60;">
-            <h4 style="color: #27ae60; margin-top: 0; margin-bottom: 10px;"><i class="fas fa-file-signature"></i> Berita Acara Serah Terima</h4>
-            <p style="font-size: 12px; color: #777; margin-bottom: 15px;">Cetak dokumen serah terima ATK per nomor surat untuk ditandatangani oleh penerima barang.</p>
-            
-            <form action="<?= base_url('admin/laporan/cetak_berita_acara'); ?>" method="GET" target="_blank">
-                <div style="margin-bottom: 15px;">
-                    <label style="font-size: 11px; font-weight: bold; color: #555;">MASUKKAN NOMOR NOTA / SURAT :</label>
-                    <input type="text" name="no_nota" placeholder="Contoh: 4204/SEK.03..." required 
-                           style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 13px; margin-top: 5px;">
-                </div>
-                <button type="submit" style="width: 100%; background: #27ae60; color: #fff; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s;">
-                    <i class="fas fa-file-pdf"></i> Generate Berita Acara
-                </button>
-            </form>
-        </div>
     </div>
 </div>
 <?= $this->endSection(); ?>
